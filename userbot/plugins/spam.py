@@ -18,8 +18,8 @@ from mafiabot.Config import Config
 LOGGER = Config.PLUGIN_CHANNEL
 SUDO_WALA = Config.SUDO_USERS
 
-@bot.on(admin_cmd(pattern="spam|spam (.*)"))
-@bot.on(sudo_cmd(pattern="spam|spam (.*)", allow_sudo=True))
+@bot.on(admin_cmd(pattern="spam|sp (.*)"))
+@bot.on(sudo_cmd(pattern="spam|sp (.*)", allow_sudo=True))
 async def spammer(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         message = e.text
@@ -33,8 +33,8 @@ async def spammer(e):
             )
 
 
-@bot.on(admin_cmd(pattern="bigspam|bigspam"))
-@bot.on(sudo_cmd(pattern="bigspam|bigspam", allow_sudo=True))
+@bot.on(admin_cmd(pattern="bigspam|bs"))
+@bot.on(sudo_cmd(pattern="bigspam|bs", allow_sudo=True))
 async def bigspam(mafia):
     if not mafia.text[0].isalpha() and mafia.text[0] not in ("/", "#", "@", "!"):
         mafia_msg = mafia.text
@@ -49,8 +49,8 @@ async def bigspam(mafia):
             )
 
 
-@bot.on(admin_cmd("dspam|dspam (.*)"))
-@bot.on(sudo_cmd(pattern="dspam|dspam (.*)", allow_sudo=True))
+@bot.on(admin_cmd("dspam|ds (.*)"))
+@bot.on(sudo_cmd(pattern="dspam|d (.*)", allow_sudo=True))
 async def spammer(e):
     if e.fwd_from:
         return
@@ -64,9 +64,9 @@ async def spammer(e):
         await asyncio.sleep(spamDelay)
 
 
-#@register(outgoing=True, pattern="^.mspam|mspam (.*)")
-@bot.on(admin_cmd(pattern="mspam|mspam (.*)"))
-@bot.on(sudo_cmd(pattern="mspam|mspam (.*)", allow_sudo=True))
+#@register(outgoing=True, pattern="^.mspam|ms (.*)")
+@bot.on(admin_cmd(pattern="mspam|ms (.*)"))
+@bot.on(sudo_cmd(pattern="mspam|ms (.*)", allow_sudo=True))
 async def tiny_pic_spam(e):
     sender = await e.get_sender()
     me = await e.client.get_me()
